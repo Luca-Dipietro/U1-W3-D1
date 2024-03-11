@@ -6,7 +6,7 @@
 const newString = function (string1, string2) {
   let firstFonts = string1.substring(0, 2);
   let lastFonts = string2.slice(-3);
-  let finalString = firstFonts + lastFonts;
+  let finalString = firstFonts.concat(lastFonts);
   let upperFinalString = finalString.toUpperCase();
   console.log(upperFinalString);
 };
@@ -257,10 +257,29 @@ console.log(only2000Film(movies));
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
+const sumYears = function (movies) {
+  let sum = movies.reduce(
+    (accumulator, movies) => accumulator + parseInt(movies.Year),
+    0
+  );
+  return sum;
+};
+console.log(sumYears(movies));
+
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+const specMovies = function (movies, imdbID) {
+  return movies.find((film) => film.imdbID === imdbID);
+};
+console.log(specMovies(movies, "tt4154796"));
+
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+
+const firstIndex = function (movies, Year) {
+  return movies.findIndex((film) => film.Year === Year);
+};
+console.log(firstIndex(movies, "2002"));
