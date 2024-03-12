@@ -215,9 +215,9 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 
-const olderMovies = function (movies) {
+const olderMovies = function (array) {
   let olderFilm = movies[0];
-  movies.forEach((film) => {
+  array.forEach((film) => {
     if (parseInt(film.Year) < parseInt(olderFilm.Year)) {
       olderFilm = film;
     }
@@ -230,8 +230,8 @@ console.log(olderMovies(movies));
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 
-const totalMovies = function (movies) {
-  return movies.length;
+const totalMovies = function (array) {
+  return array.length;
 };
 console.log(totalMovies(movies));
 
@@ -239,8 +239,8 @@ console.log(totalMovies(movies));
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 
-const onlyTitle = function (movies) {
-  return movies.map((film) => film.Title);
+const onlyTitle = function (array) {
+  return array.map((film) => film.Title);
 };
 console.log(onlyTitle(movies));
 
@@ -248,8 +248,8 @@ console.log(onlyTitle(movies));
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 
-const only2000Film = function (movies) {
-  return movies.filter((film) => parseInt(film.Year) >= 2000);
+const only2000Film = function (array) {
+  return array.filter((film) => parseInt(film.Year) >= 2000);
 };
 console.log(only2000Film(movies));
 
@@ -257,8 +257,8 @@ console.log(only2000Film(movies));
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
-const sumYears = function (movies) {
-  let sum = movies.reduce(
+const sumYears = function (array) {
+  let sum = array.reduce(
     (accumulator, movies) => accumulator + parseInt(movies.Year),
     0
   );
@@ -270,8 +270,8 @@ console.log(sumYears(movies));
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
-const specMovies = function (movies, imdbID) {
-  return movies.find((film) => film.imdbID === imdbID);
+const specMovies = function (array, imdbID) {
+  return array.find((film) => film.imdbID === imdbID);
 };
 console.log(specMovies(movies, "tt4154796"));
 
@@ -279,7 +279,7 @@ console.log(specMovies(movies, "tt4154796"));
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
 
-const firstIndex = function (movies, Year) {
-  return movies.findIndex((film) => film.Year === Year);
+const firstIndex = function (array, Year) {
+  return array.findIndex((film) => film.Year === Year);
 };
 console.log(firstIndex(movies, "2002"));
